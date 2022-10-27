@@ -1,0 +1,75 @@
+# SCREEN AFTER PRESSING SIGNUP
+
+<PreSignup@MDScreen>: 
+    id: pre_sign_up_screen
+    FloatLayout:
+        orientation:"vertical"
+        Image:
+            source: 'images/LOGO.png'
+            size_hint_x: 0.80
+            pos_hint: {'center_x':0.50,'center_y':.83}
+        MDLabel:
+            text: "FAMMA"
+            font_name: 'Fonts/BebasNeue.otf'
+            font_size: 57
+            color: "dbdbdb"
+            pos_hint: {'center_x':0.79,'center_y':.72}
+        MDLabel:
+            text: "Sign up as:"
+            font_size: 12
+            color: "c2d5db"
+            bold: True
+            halign: 'center'
+            pos_hint: {'center_y':.625}
+        MDCard:    #card to button conversion via ripple
+            pos_hint: {'center_x':0.5,'center_y':.54}
+            size_hint: (.82,.09)
+            radius: 15
+            md_bg_color: C("90b5cf")
+            ripple_behavior: True
+            on_release: app.to_pre_employee()
+            Image:
+                source: 'images/Employee.png'
+                size_hint: (1,1)
+            MDLabel: 
+                text: "Employee"
+                font_size: 17
+                halign: 'center'
+                color: C("ffffff")
+                bold: True
+                size_hint: (1,1)
+            MDLabel:
+                text: ""
+        MDCard:    #card to button conversion via ripple
+            pos_hint: {'center_x':0.5,'center_y':.44}
+            size_hint: (.82,.09)
+            radius: 15
+            md_bg_color: C("90b5cf")
+            ripple_behavior: True
+            on_release: app.to_sign_up_employer()
+            
+            Image:
+                source: 'images/Employer.png'
+                size_hint: (1,1)
+
+
+            MDLabel: 
+                text: "Employer"
+                font_size: 17
+                halign: 'center'
+                color: C("ffffff")
+                bold: True
+                size_hint: (1,1)
+            MDLabel: 
+                text: ""
+
+        Image: # ANIMATE TO LEFT
+            source: 'images/cloud2.png'
+            color: 1,1,1,0.8 
+            size_hint_x: 0.55
+            pos_hint: {'center_x':0.20,'center_y':0.12}
+        Image: # ANIMATE TO RIGHT
+            source: 'images/cloud3.png' 
+            size_hint_x: 0.6
+            pos_hint: {'center_x':0.79,'center_y':0.09}
+            color: 1,1,1,0.8 # eto

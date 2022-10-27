@@ -1,0 +1,46 @@
+<PreEmployee@MDScreen>:
+    id: pre_employee
+    company_code: company_code
+
+
+    FloatLayout:
+        MDLabel:
+            pos_hint: {'center_x':0.55,'center_y':.59}
+            size_hint: (0.9,.4)
+            text: "Company Code"
+            font_size: 12
+            color: "dbdbdb"
+            bold: True
+            halign: "left"
+        MDCard:
+            pos_hint: {'center_x':0.5,'center_y':0.54}
+            size_hint: (0.8,0.06)
+            md_bg_color: C("90b5cf")
+            orientation: "horizontal"
+            MDLabel: #spacers
+                size_hint: (.02,None)
+            TextInput:
+                id: company_code
+                hint_text: "Enter Company Code"
+                cursor_color: '131925'
+                font_size: 12
+                size_hint: (1,1)
+                background_normal: ""
+                background_active: ""
+                background_color: (0,0,0,0)
+                foreground_color: '131925'
+                multiline: False
+        MDCard:    #card to button conversion via ripple
+            pos_hint: {'center_x':0.5,'center_y':.45}
+            size_hint: (0.8,0.08)
+            radius: 10
+            md_bg_color: C("e8e8e8")
+            ripple_behavior: True
+            on_release: app.company_code()
+            MDLabel: 
+                size_hint: (1,1)
+                text: "Continue"
+                font_size: 13
+                halign: 'center'
+                color: C("2c4a6e")
+                bold: True

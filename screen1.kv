@@ -1,0 +1,125 @@
+<LoginScreen@MDScreen>: 
+    id: login_screen
+    username:username
+    password:password
+
+    FloatLayout:
+        orientation:"vertical"
+
+        MDLabel:
+            pos_hint: {'x':.09,'center_y':.9}
+            text: "Sign In"
+            font_size: 16
+            color: "c2d5db"
+            bold: True
+
+        MDCard:
+            md_bg_color: C("c2d5db")
+            radius:10,10,0,0
+            size_hint: (1,.83)
+
+            FloatLayout:
+                orientation:"vertical"
+
+                MDLabel:
+                    text: "Welcome Back"
+                    color: "131925"
+                    font_size: 16
+                    bold: True
+                    pos_hint: {'x':.09,'center_y':.93}
+
+                MDLabel:
+                    text: "Hello there."
+                    color: "131925"
+                    font_size: 11
+                    bold: False
+                    pos_hint: {'x':.09,'center_y':.89}
+
+                MDLabel:
+                    text: "Username or Email"
+                    color: "131925"
+                    font_size: 11
+                    bold: True
+                    pos_hint: {'x':.09,'center_y':.775}
+
+                MDCard:
+                    pos_hint: {'center_x':0.5,'center_y':.7}
+                    size_hint: (.82,.09)
+                    radius: 10
+                    md_bg_color: C("afc2c7")
+                    orientation: "horizontal"
+
+                    MDLabel: #spacers
+                        size_hint: (.02,None)
+
+                    TextInput:
+                        id: username
+                        hint_text: "Enter Username or Email"
+                        cursor_color: '131925'
+                        font_size: 13
+                        pos_hint: {'center_y':.5,'center_y':.5}
+                        size_hint: (.8,.8)
+                        background_normal: ""
+                        background_active: ""
+                        background_color: (0,0,0,0)
+                        foreground_color: '131925'
+                        multiline: False
+
+                    MDLabel: #spacers
+                        size_hint: (.02,None)
+                MDLabel:
+                    text: "Password"
+                    color: "131925"
+                    font_size: 11
+                    bold: True
+                    pos_hint: {'x':.09,'center_y':.625}
+
+                MDCard:
+                    pos_hint: {'center_x':0.5,'center_y':.55}
+                    size_hint: (.82,.09)
+                    radius: 10
+                    md_bg_color: C("afc2c7")
+                    orientation: "horizontal"
+
+                    MDLabel: #spacers
+                        size_hint: (.02,None)
+
+                    TextInput:
+                        id: password
+                        hint_text: "Enter Password"
+                        cursor_color: '131925'
+                        font_size: 13
+                        pos_hint: {'center_y':.5,'center_y':.5}
+                        size_hint: (.8,.8)
+                        background_normal: ""
+                        background_active: ""
+                        background_color: (0,0,0,0)
+                        foreground_color: '131925'
+                        multiline: False
+                        password: True
+
+                    MDLabel: #spacers
+                        size_hint: (.02,None)
+
+                MDTextButton:
+                    pos_hint: {'center_x':0.5,'center_y':.45}
+                    text: "Create Account"
+                    font_size: 13
+                    custom_color: C('131925')
+                    on_press: app.create_account()
+                                
+                MDCard:    #card to button conversion via ripple
+                    pos_hint: {'center_x':0.5,'center_y':.34}
+                    size_hint: (.82,.09)
+                    radius: 10
+                    md_bg_color: C("131925")
+                    ripple_behavior: True
+                    on_release: app.login()
+
+                    MDLabel: 
+                        text: "Sign In"
+                        font_size: "13sp"
+                        halign: 'center'
+                        color: C("c2d5db")
+                        bold: True
+                        size_hint: (1,1)

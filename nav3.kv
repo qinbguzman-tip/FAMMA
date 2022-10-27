@@ -1,0 +1,19 @@
+<NavBarThree@MDScreen>:
+    id: navbar_three
+    FloatLayout:
+        BoxLayout:
+            id: "box"
+            Image:
+                size_hint: 0.4,0.45
+                pos_hint: {'center_x': 0.2,'center_y': 0.65}
+                source: "images/construction.png"
+                allow_stretch:True
+        BoxLayout:
+
+            MDLabel:
+                pos_hint: {'center_x':.5, 'center_y':0.4}
+                size_hint: 1,1
+                id: fatigue_message #MAIN TEXT
+                text:"This feature is under development"
+                color: C("e8e8e8")
+                halign: "center"

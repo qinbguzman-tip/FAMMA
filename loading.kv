@@ -1,0 +1,28 @@
+# CREATE AN ANIMATION FUNCTION FOR CLOUD 1/2 then fade into white (Cloud color) then transition to sign in
+
+<BootScreen@MDScreen>:
+    on_enter: app.bootingScreen()
+    id: boot_screen
+    FloatLayout:
+        orientation:"vertical"
+
+        Image: # ANIMATE TO RIGHT
+            source: 'images/cloud1.png' 
+            size_hint_x: 0.6
+            pos_hint: {'x': 0.5,'y': 0.4}
+            color: 1,1,1,0.8 # eto
+        Image:
+            source: 'images/LOGO.png'
+            size_hint_x: 0.90
+            pos_hint: {'center_x':0.50,'center_y':.580}
+        MDLabel:
+            text: "FAMMA"
+            font_name: 'Fonts/BebasNeue.otf'
+            font_size: 70
+            color: "dbdbdb"
+            pos_hint: {'center_x':0.745,'center_y':.450}
+        Image: # ANIMATE TO LEFT
+            source: 'images/cloud4.png'
+            color: 1,1,1,0.8 
+            size_hint_x: 0.8
+            pos_hint: {'center_x':0.3,'center_y':0.02}

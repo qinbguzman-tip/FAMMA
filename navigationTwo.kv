@@ -1,0 +1,93 @@
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+<EmployeeHomeScreen@MDScreen>:
+    id: employee_home_screen
+    name: "employee_home_screen"
+    float: float
+    home_two:home_two
+    MDFloatLayout:
+        id: float
+        name: "float"
+        main_screen: main_screen
+        home_two:home_two
+        md_bg_color: C("2c4a6e") 
+        ScreenManager:
+            id: main_screen
+            survey_form_one: survey_form_one
+            edit_time:edit_time
+            sleep:sleep
+            transition: NoTransition()
+            home_two:home_two #home_two.edit_time
+            HomeTwoScreen:
+                id: home_two
+                name: "home_two"
+            NavBarTwo:
+                id: sleep
+                name: "sleep"
+            NavBarThree:
+                id: history
+                name: "history"
+            NavBarFour:
+                id: input_factor
+                name: "input_factor"
+            SurveyFormOne:
+                id: survey_form_one
+                name: "survey_form_one"
+            EditTime:
+                id: edit_time
+                name: "edit_time"        
+                md_bg_color: C("2c4a6e")
+                
+        NavBar:
+            size_hint: 1.05, .1
+            pos_hint: {"center_x": .5, "center_y": 0.04}
+            elevation: 0
+            md_bg_color: C("dbdbdb")
+            MDGridLayout:
+                cols:4
+                size_hint_x: .9
+                spacing: 28
+                pos_hint: {"center_x": .5, "center_y": .5}
+                MDIconButton:
+                    id: nav_icon1
+                    icon: "home"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: C("2c4a6e")
+                    on_release:
+                        main_screen.current = "home_two"
+                        app.generate_fatigue_status()
+                        app.change_color(self)
+                MDIconButton:
+                    id: nav_icon2
+                    icon: "sleep"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: C("2c4a6e")
+                    on_release:
+                        main_screen.current = "sleep"
+                        app.get_sleep_hour()
+                        app.change_color(self)
+                MDIconButton:
+                    id: nav_icon3
+                    icon: "history"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: C("2c4a6e")
+                    on_release:
+                        main_screen.current = "history"
+                        app.change_color(self)
+                MDIconButton:
+                    id: nav_icon4
+                    icon: "menu"
+                    ripple_scale: 0
+                    user_font_size: "30sp"
+                    theme_text_color: "Custom"
+                    text_color: C("2c4a6e")
+                    on_release:
+                        main_screen.current = "input_factor"
+                        app.type = None
+                        app.page = 0
+                        app.change_color(self)

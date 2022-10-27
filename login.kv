@@ -1,0 +1,138 @@
+<NewSignInScreen@MDScreen>: 
+    id: new_sign_in_screen
+    username: username
+    password: password
+
+    FloatLayout:
+        orientation:'vertical'
+        MDLabel:
+            pos_hint: {'center_x':0.5,'center_y':.85}
+            size_hint: (0.9,.4)
+            text: "WELCOME"
+            font_name: "Fonts/COMICNEUESANSID.TTF"
+            font_size: 40
+            color: "dbdbdb"
+            bold: True
+            halign: "center"
+        MDLabel:
+            pos_hint: {'center_x':0.5,'center_y':.80}
+            size_hint: (0.9,.4)
+            text: "to"
+            font_size: 13
+            color: "dbdbdb"
+            bold: True
+            halign: "center"
+        MDLabel:
+            pos_hint: {'center_x':0.5,'center_y':.74}
+            size_hint: (0.9,.4)
+            text: "FAMMA"
+            font_name: 'Fonts/BebasNeue.otf'
+            font_size: 50
+            color: "dbdbdb"
+            halign: "center"
+        MDLabel:
+            pos_hint: {'center_x':0.5,'center_y':.68}
+            size_hint: (0.9,.4)
+            text: "Fatigue Analysis Management\nMobile Application"
+            font_name: 'Fonts/BADCOMIC-REGULAR.OTF'
+            font_size: 10
+            color: "dbdbdb"
+            halign: "center"
+        MDLabel:
+            pos_hint: {'center_x':0.55,'center_y':.59}
+            size_hint: (0.9,.4)
+            text: "Username"
+            font_size: 12
+            color: "dbdbdb"
+            bold: True
+            halign: "left"
+        MDCard:
+            pos_hint: {'center_x':0.5,'center_y':0.54}
+            size_hint: (0.8,0.06)
+            md_bg_color: C("90b5cf")
+            orientation: "horizontal"
+            MDLabel: #spacers
+                size_hint: (.02,None)
+            TextInput:
+                id: username
+                hint_text: "Enter Username"
+                cursor_color: '131925'
+                font_size: 12
+                size_hint: (1,1)
+                background_normal: ""
+                background_active: ""
+                background_color: (0,0,0,0)
+                foreground_color: '131925'
+                multiline: False
+        MDLabel:
+            pos_hint: {'center_x':0.55,'center_y':.48}
+            size_hint: (0.9,.4)                
+            text: "Password"
+            font_size: 12
+            color: "dbdbdb"
+            bold: True
+            halign: "left"
+        MDCard:
+            pos_hint: {'center_x':0.5,'center_y':0.43}
+            size_hint: (0.8,0.06)
+            md_bg_color: C("90b5cf")
+            orientation: "horizontal"
+            MDLabel: #spacers
+                size_hint: (.02,None)
+            TextInput:
+                id: password
+                hint_text: "Enter Password"
+                cursor_color: '131925'
+                font_size: 12
+                pos_hint: {'center_y':.5,'center_y':.5}
+                size_hint: (1,1)
+                background_normal: ""
+                background_active: ""
+                background_color: (0,0,0,0)
+                foreground_color: '131925'
+                multiline: False
+                password: True
+        MDCard:    #card to button conversion via ripple
+            pos_hint: {'center_x':0.5,'center_y':.33}
+            size_hint: (0.8,0.08)
+            radius: 10
+            md_bg_color: C("e8e8e8")
+            ripple_behavior: True
+            on_release:     
+                app.login()
+                app.clear_field_login()
+            MDLabel: 
+                size_hint: (1,1)
+                text: "Sign In"
+                font_size: 13
+                halign: 'center'
+                color: C("2c4a6e")
+                bold: True
+        MDLabel:
+            pos_hint: {'center_x':0.3,'center_y':0.26}
+            size_hint: (0.8,0.06)
+            text: "Don't have an account?"
+            font_size: 12
+            color: "dbdbdb"
+            halign:"center" 
+        MDTextButton:
+            pos_hint: {'center_x':0.57,'center_y':0.26}
+            size_hint: (0.8,0.06)
+            text: "Create."
+            font_size: 12
+            color: "dbdbdb"
+            on_press: 
+                app.create_account() 
+                app.clear_field_login()
+            halign:"center" 
+            underline: True
+        Image: # ANIMATE TO LEFT
+            source: 'images/cloud4.png'
+            color: 1,1,1,0.8 
+            size_hint_x: 0.55
+            pos_hint: {'center_x':0.20,'center_y':0.02}
+        Image: # ANIMATE TO RIGHT
+            source: 'images/cloud3.png' 
+            size_hint_x: 0.6
+            pos_hint: {'center_x':0.76,'center_y':0.05}
+            color: 1,1,1,0.8 # eto

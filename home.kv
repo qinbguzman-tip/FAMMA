@@ -1,0 +1,41 @@
+<HomeTwoScreen@MDScreen>:
+    id: home_two
+    name: "home_two"
+    fatigue_picture: fatigue_picture
+    fatigue_message:fatigue_message
+    home_button:home_button
+    ## CREATE A FUNCTION TO DETECT IF STATUS IS SET
+
+    #IF NEUTRAL == THIS
+
+    #Put it in userfunctions.py
+    FloatLayout:
+        Image:
+            source: 'images/Neutral.png'
+            id: fatigue_picture #Image 
+            size_hint: (1,1)
+            pos_hint: {'center_x':0.50,'center_y':.7}
+            halign: "center"
+            markup: True
+        MDLabel:
+            pos_hint: {'center_x':.5, 'center_y':0.43}
+            size_hint: 0.8,1
+            id: fatigue_message #MAIN TEXT
+            text:"You haven't typed input your \n status yet."
+            color: C("e8e8e8")
+            halign: "center"
+        MDCard:    #card to button conversion via ripple
+            id: home_button
+            pos_hint: {'center_x':0.5,'center_y':.32}
+            size_hint: (0.8,0.08)
+            radius: 10
+            md_bg_color: C("e8e8e8")
+            ripple_behavior: True
+            on_release: app.to_nav_2()
+            MDLabel: 
+                size_hint: (1,1)
+                text: "Assess now"
+                font_size: 13
+                halign: 'center'
+                color: C("2c4a6e")
+                bold: True

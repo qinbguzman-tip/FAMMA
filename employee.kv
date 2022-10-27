@@ -1,0 +1,162 @@
+<EmployeeSignup@MDScreen>: 
+
+    id: employee_sign_up_screen
+    full_name: full_name
+    employee_code: employee_code
+    username: username
+    password: password
+
+    FloatLayout:
+        orientation:"vertical"
+        Image:
+            source: 'images/LOGO.png'
+            size_hint: (0.6,.6)
+            pos_hint: {'center_x':0.50,'center_y':.900}
+        MDLabel:
+            text: "FAMMA"
+            font_size: 35
+            color: "c2d5db"
+            bold: True
+            pos_hint: {'center_x':0.81,'center_y':.820}
+        #MDLabel:
+            #text: "SIGN UP"
+            #font_size: 12
+            #color: "c2d5db"
+            #bold: True
+            #halign: 'center'
+            #pos_hint: {'center_y':.625}
+        MDLabel:
+            pos_hint: {'center_x':0.55,'center_y':.75}
+            size_hint: (0.9,.4)
+            text: "Name"
+            font_size: 12
+            color: "dbdbdb"
+            bold: True
+            halign: "left"
+        MDCard:
+            pos_hint: {'center_x':0.5,'center_y':0.70}
+            size_hint: (0.8,0.06)
+            md_bg_color: C("90b5cf")
+            orientation: "horizontal"
+            MDLabel: #spacers
+                size_hint: (.02,None)
+            TextInput:
+                size_hint: 1, .9
+                pos_hint: {'center_x':0.5}
+                id: full_name
+                cursor_color: '131925'
+                font_size: 12
+                background_normal: ""
+                background_active: ""
+                background_color: (0,0,0,0)
+                foreground_color: '131925'
+                multiline: False
+        MDLabel:
+            pos_hint: {'center_x':0.55,'center_y':.65}
+            size_hint: (0.9,.4)                
+            text: "Employee Code"
+            font_size: 12
+            color: "dbdbdb"
+            bold: True
+            halign: "left"
+        MDCard:
+            pos_hint: {'center_x':0.5,'center_y':0.60}
+            size_hint: (0.8,0.06)
+            md_bg_color: C("90b5cf")
+            orientation: "horizontal"
+            MDLabel: #spacers
+                size_hint: (.02,None)
+            TextInput:
+                id: employee_code
+                size_hint: 1, .99
+                pos_hint: {'center_x':0.8}
+                cursor_color: '131925'
+                font_size: 12
+                background_normal: ""
+                background_active: ""
+                background_color: (0,0,0,0)
+                foreground_color: '131925'
+                multiline: False
+        MDLabel:
+            pos_hint: {'center_x':0.55,'center_y':.55}
+            size_hint: (0.9,.4)                
+            text: "Username"
+            font_size: 12
+            color: "dbdbdb"
+            bold: True
+            halign: "left"
+        MDCard:
+            pos_hint: {'center_x':0.5,'center_y':0.50}
+            size_hint: (0.8,0.06)
+            md_bg_color: C("90b5cf")
+            orientation: "horizontal"
+            MDLabel: #spacers
+                size_hint: (.02,None)
+            TextInput:
+                id: username
+                cursor_color: '131925'
+                font_size: 12
+                size_hint: 1, .98
+                pos_hint: {'center_x':0.5}
+                background_normal: ""
+                background_active: ""
+                background_color: (0,0,0,0)
+                foreground_color: '131925'
+                multiline: False
+        MDLabel:
+            pos_hint: {'center_x':0.55,'center_y':.45}
+            size_hint: (0.9,.4)                
+            text: "Password"
+            font_size: 12
+            color: "dbdbdb"
+            bold: True
+            halign: "left"
+        MDCard:
+            pos_hint: {'center_x':0.5,'center_y':0.40}
+            size_hint: (0.8,0.06)
+            md_bg_color: C("90b5cf")
+            orientation: "horizontal"
+            MDLabel: #spacers
+                size_hint: (.02,None)
+            TextInput:
+                id: password
+                cursor_color: '131925'
+                font_size: 12
+                size_hint: 1, .9
+                pos_hint: {'center_x':0.5}
+                background_normal: ""
+                background_active: ""
+                background_color: (0,0,0,0)
+                foreground_color: '131925'
+                multiline: False
+                password: True
+        MDLabel:
+            pos_hint: {'center_x':0.63,'center_y':.35}
+            size_hint: (0.9,.4)                
+            text: "By signing up, you agree to the terms and conditions of use. "
+            font_size: 8
+            color: "dbdbdb"
+            bold: True
+            halign: "left"
+        MDCard:    #card to button conversion via ripple
+            pos_hint: {'center_x':0.5,'center_y':.20}
+            size_hint: (0.8,0.08)
+            radius: 10
+            md_bg_color: C("e8e8e8")
+            ripple_behavior: True
+            on_release: app.sign_up(2)
+            MDLabel: 
+                size_hint: (1,1)
+                text: "CREATE ACCOUNT"
+                font_size: 13
+                halign: 'center'
+                color: C("2c4a6e")
+                bold: True
+        Image:
+            source: 'images/cloud2.png'
+            size_hint: (1,1)
+            pos_hint: {'center_x':0.1,'center_y':0.2}        
+        Image:
+            source: 'images/cloud3.png'
+            size_hint: (1,1)
+            pos_hint: {'center_x':0.9,'center_y':0.05}

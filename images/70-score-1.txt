@@ -1,0 +1,841 @@
+Part 1: IP Addressing
+3.) 
+—LONDON—
+int g0/0
+ip add 172.16.0.165 255.255.255.224
+no shut
+(14%)
+
+int g0/1
+ip add 172.16.0.1 255.255.255.192
+no shut
+
+*
+—SW-SubnetA—
+ip add 172.16.0.62 255.255.255.192
+no shut
+
+—SW-SubnetB—
+ip add 172.16.0.94 255.255.255.224
+no shut
+* note: sa baba pa pala to pero di ko alam kung may dagdag sa percentage
+
+4.) 
+—-London—
+ipv6 unicast-routing
+int g0/0
+ipv6 address 2001:ABCD:A::1/64
+(15%)
+ipv6 address FE80::1 link-local 
+ipv6 enable 
+
+int g0/1
+ipv6 address 2001:ABCD:B::1/64
+(16%)
+ipv6 address FE80::1 link-local 
+ipv6 enable
+
+5.) 
+—-London—
+int s0/0/0
+ip address 200.20.20.2 255.255.255.252
+no shut 
+
+—-New_York_Main—
+int s0/0/0
+ip address 10.1.1.1 255.255.255.252
+no shut 
+
+(17%) 
+
+int s0/0/1
+ip address 10.1.2.1 255.255.255.252
+no shut 
+
+int s0/1/0
+ip address 200.10.10.2 255.255.255.252
+no shut 
+(18%)
+
+ —New_YorkA—
+int s0/0/1 
+ip address 10.1.2.2 255.255.255.252
+(19%)
+no shut 
+
+
+int g0/1 
+ip address 10.50.0.1 255.255.0.0
+no shut 
+
+
+—New_YorkB—
+int s0/0/0
+ip address 10.1.1.2 255.255.255.252
+no shut
+
+int g0/1
+ip address 10.60.0.1 255.255.0.0
+(20%)
+no shut 
+
+Part 2: Basic Configuration
+1.)
+—London—
+no ip domain-lookup
+hostname London
+ip domain-name finalskills.com
+enable secret ciscoenpass
+lin con 0
+pass ciscoconpass
+login 
+(21%)
+lin vty 0 15
+pass ciscovtypass
+login 
+(22%)
+exit
+security passwords min-length 11
+username admin secret ciscoadminpass
+lin vty 0 15 
+login local 
+transport input ssh
+(23%)
+exit
+service password-encryption
+banner motd “Unauthorized access is prohibited”
+
+
+2.)
+—SW_SubnetA—
+enable secret ciscoenpass
+lin con 0
+pass ciscoconpass
+login
+(24%)
+lin vty 0 15
+pass ciscovtypass
+login
+exit 
+no ip domain-lookup
+hostname SW_SubnetA
+(25%)
+ip domain-name finalskills.com
+username admin secret ciscoadminpass
+lin vty 0 15 
+login local 
+transport input ssh
+exit
+service password-encryption
+banner motd “Unauthorized access is prohibited”
+
+
+—SW_SubnetB—
+enable secret ciscoenpass
+lin con 0
+pass ciscoconpass
+login
+lin vty 0 15
+pass ciscovtypass
+login
+exit 
+no ip domain-lookup
+hostname SW_SubnetB
+ip domain-name finalskills.com
+username admin secret ciscoadminpass
+lin vty 0 15 
+login local 
+transport input ssh
+exit
+service password-encryption
+banner motd “Unauthorized access is prohibited”
+
+—SW_01—
+hostname SW_01
+enable secret ciscoenpass
+lin con 0
+pass ciscoconpass
+login
+lin vty 0 15
+pass ciscovtypass
+login
+exit 
+no ip domain-lookup
+ip domain-name finalskills.com
+username admin secret ciscoadminpass
+lin vty 0 15 
+login local 
+transport input ssh
+exit
+service password-encryption
+banner motd “Unauthorized access is prohibited”
+
+
+—SW_02—
+hostname SW_02
+enable secret ciscoenpass
+lin con 0
+pass ciscoconpass
+login
+lin vty 0 15
+pass ciscovtypass
+login
+exit
+no ip domain-lookup
+ip domain-name finalskills.com
+username admin secret ciscoadminpass
+lin vty 0 15 
+login local 
+transport input ssh
+exit
+service password-encryption
+banner motd “Unauthorized access is prohibited”
+(26% na dito)
+
+—SW_03—
+hostname SW_03
+enable secret ciscoenpass
+lin con 0
+pass ciscoconpass
+login
+lin vty 0 15
+pass ciscovtypass
+login
+exit
+no ip domain-lookup
+ip domain-name finalskills.com
+username admin secret ciscoadminpass
+lin vty 0 15 
+login local 
+transport input ssh
+exit
+service password-encryption
+banner motd “Unauthorized access is prohibited”
+
+
+—SW_04—
+hostname SW_04
+enable secret ciscoenpass
+lin con 0
+pass ciscoconpass
+(27%)
+login
+lin vty 0 15
+pass ciscovtypass
+login
+exit
+no ip domain-lookup
+ip domain-name finalskills.com
+username admin secret ciscoadminpass
+lin vty 0 15 
+login local 
+transport input ssh
+exit
+service password-encryption
+banner motd “Unauthorized access is prohibited”
+
+
+—SW_05—
+hostname SW_05
+enable secret ciscoenpass
+lin con 0
+pass ciscoconpass
+login
+lin vty 0 15
+pass ciscovtypass
+login
+exit
+no ip domain-lookup
+ip domain-name finalskills.com
+username admin secret ciscoadminpass
+lin vty 0 15 
+login local 
+transport input ssh
+exit
+service password-encryption
+banner motd “Unauthorized access is prohibited”
+
+3.) 
+(1)
+—New_York_Main—
+int g0/0.5
+(28%)
+no shut
+int g0/0.10
+no shut
+int g0/0.20
+no shut
+int g0/0.30
+no shut
+int g0/0.40
+no shut
+
+(2)
+—New_York_Main—
+int g0/0.5
+encapsulation dot1Q 5
+ip add 10.10.5.1 255.255.255.0
+(29% na dito) 
+
+int g0/0.10
+encapsulation dot1Q 10
+ip add 10.10.10.1 255.255.255.0
+(30% na dito)
+
+int g0/0.20
+encapsulation dot1Q 20
+ip add 10.10.20.1 255.255.255.0
+(31% na dito)
+
+int g0/0.30
+encapsulation dot1Q 30
+ip add 10.10.30.1 255.255.255.0
+
+int g0/0.40
+encapsulation dot1Q 40
+ip add 10.10.40.1 255.255.255.0
+ (32% na dito)
+
+4.) 
+(1)
+—-SW_01—
+vlan88
+name Native
+vlan 5
+name DMZ
+(33%)
+vlan 10
+name MGT
+vlan 20
+name ADMIN
+vlan 30
+name Sales
+vlan 40
+name ACCOUNTING
+(33% na dito)
+
+—-SW_02—
+vlan88
+name Native
+vlan 5
+name DMZ
+vlan 10
+name MGT
+vlan 20
+name ADMIN
+vlan 30
+name Sales
+vlan 40
+name ACCOUNTING
+(34% na dito)
+
+—-SW_03—
+vlan88
+name Native
+vlan 5
+name DMZ
+vlan 10
+name MGT
+vlan 20
+name ADMIN
+vlan 30
+name Sales
+vlan 40
+name ACCOUNTING
+(35% na dito)
+
+(2) and (3)
+—SW_01—
+int vlan 1
+ip add 10.10.10.4 255.255.255.0
+no shut
+exit
+ip default-gateway 10.10.10.1
+
+
+—SW_02—
+int vlan 1
+ip add 10.10.10.5 255.255.255.0
+no shut
+exit
+ip default-gateway 10.10.10.1
+
+—SW_03—
+int vlan 1
+ip add 10.10.10.6 255.255.255.0
+no shut
+exit
+ip default-gateway 10.10.10.1
+
+(4)
+—SW_01—
+int ran f0/21-24
+switchport mode trunk
+switchport trunk native vlan 88
+(38%)
+
+int port-channel 1
+switchport mode trunk
+
+—SW_02—
+int ran f0/21-24
+switchport mode trunk
+switchport trunk native vlan 88
+(dito ata yung 38%? di ko sure)
+
+int g0/1
+switchport mode trunk
+(MAY +1% to = 39%)
+
+—SW_03—
+int ran f0/21-24
+switchport mode trunk
+switchport trunk native vlan 88
+(40%)
+
+int port-channel 1
+switchport mode trunk
+(41%)
+
+(5)
+—SW_01—
+int ran f0/1-20, g0/1-2
+switchport mode access
+
+
+—SW_02—
+int ran f0/1-20, g0/2
+switchport mode access
+
+—SW_03—
+int ran f0/1-20, g0/1-2
+switchport mode access
+
+(6)
+—SW_01—
+int f0/1
+switchport access vlan 20
+(42%)
+
+int g0/1
+switchport access vlan 5
+
+—SW_02—
+int f0/1
+switchport access vlan 10
+
+—SW_03—
+int f0/1
+switchport access vlan 20
+
+int f0/2
+switchport access vlan 30
+(43 %)
+
+(7)
+—SW_01—
+int ran f0/2-20, g0/2
+shut
+
+—SW_02—
+int ran f0/2-20, g0/2
+shut
+
+—SW_03—
+int ran f0/3-20, g0/1-2
+shut
+
+5.)
+(1)
+—SW_04—
+vlan 50
+name SiteB
+
+—SW_05—
+vlan 60
+name SiteA 
+(pag nag error issue no vlan 50)
+
+(2)
+—SW_04—
+int vlan 1
+ip add 10.50.0.2 255.255.0.0
+no shut
+
+—SW_05—
+int vlan 1
+ip add 10.60.0.2 255.255.0.0
+no shut
+
+(3)
+—SW_04—
+ip default-gateway 10.50.0.1
+
+—SW_05—
+ip default-gateway 10.60.0.1
+
+(4)
+—SW_04—
+int ran f0/1-24, g0/1-2
+switchport mode access
+
+—SW_05—
+int ran f0/1-24, g0/1-2
+switchport mode access
+
+(5)
+—SW_04—
+int ran f0/1-3
+switchport access vlan 50
+
+—SW_05—
+int ran f0/1-3
+switchport access vlan 60
+(44%)
+
+(6)
+—SW_04—
+int ran f0/4-24, g0/2
+shut
+(48%)
+
+—SW_05—
+int ran f0/4-24, g0/2
+shut
+(53%)
+
+Part 3: Static and Dynamic Routing
+1.)
+—London—
+ip route 0.0.0.0 0.0.0.0 s0/0/0
+
+2.)
+—New_York_Main—
+ip route 0.0.0.0 0.0.0.0 s0/1/0
+
+3.)
+—London—
+router ospf 1
+network 172.16.0.0 0.0.0.63 area 0 (30)
+network 172.16.0.64 0.0.0.31 area 0  (30)
+network 200.20.20.0 0.0.0.3 area 0 (no data about area)
+
+int ran g0/0-1
+ip ospf 1 area 00 (30)
+
+int s0/0/0
+ip ospf 1 area 0
+
+—New_York_Main—
+router ospf 1
+network 10.1.1.0 0.0.0.3 area 0
+network 10.1.2.0 0.0.0.3 area 0
+network 200.10.10.0 0.0.0.3 area 0
+network 10.10.5.0 0.0.0.255 area 0
+network 10.10.10.0 0.0.0.255 area 0
+network 10.10.20.0 0.0.0.255 area 0
+network 10.10.30.0 0.0.0.255 area 0
+network 10.10.40.0 0.0.0.255 area 0
+(55%)
+
+int g0/0
+ip ospf 1 area 0
+
+int s0/0/0
+ip ospf 1 area 0
+
+int s0/0/1
+ip ospf 1 area 0
+
+int s0/1/0
+ip ospf 1 area 0
+* wala etong nasa taas dun sa pdf*
+
+
+—New_YorkA—
+router ospf 1
+network 10.50.0.0 0.0.255.255 area 0 (20)
+network 10.1.2.0 0.0.0.3 area 0
+(56%)
+
+int g0/0
+ip ospf 1 area 0
+* nasa pdf pero it doesnt make sense kasi wala tong ip *
+
+int g0/1
+ip ospf 1 area 0 (20) 
+* may ip add to pero hindi to yung connected interface *
+
+int s0/0/1
+ip ospf 1 area 0
+
+—New_YorkB—
+router ospf 1
+network 10.60.0.0 0.0.255.255 area 0 (10)
+network 10.1.1.0 0.0.0.3 area 0
+
+int g0/0
+ip ospf 1 area 0 
+* weird kasi walang ip tong interface per eto yung nakakabit *
+
+int g0/1
+ip ospf 1 area 0 (10)
+* di nakakabit pero may ip weird *
+
+int s0/0/0
+ip ospf 1 area 0
+
+* ADDITIONAL LANG TO *
+—London—
+router ospf 1
+passive-interface g0/0 
+passive-interface g0/1
+
+—New_York_Main—
+router ospf 1
+passive-interface g0/0 
+passive-interface s0/0/0
+passive-interface s0/0/1
+
+—New_YorkA—
+router ospf 1
+passive-interface g0/0 
+passive-interface g0/1 * ang gulo kasi ng topo kaya sama nalang sya *
+
+—New_YorkB—
+router ospf 1
+passive-interface g0/0 
+passive-interface g0/1 * ang gulo kasi ng topo kaya sama nalang sya *
+
+(4)
+—New_York_Main—
+router ospf 1
+default-information originate
+(57%)
+
+Part 4: Configure DHCP and NAT
+6.)
+—New_York_Main—
+ip dhcp excluded-address 10.10.5.1 10.10.5.10
+ip dhcp excluded-address 10.10.10.1 10.10.10.10
+ip dhcp excluded-address 10.10.20.1 10.10.20.10
+ip dhcp excluded-address 10.10.30.1 10.10.30.10
+ip dhcp excluded-address 10.10.40.1 10.10.40.10
+ip dhcp excluded-address 10.50.0.1 10.50.0.10
+ip dhcp excluded-address 10.60.0.1 10.60.0.10
+
+7.)
+ip dhcp pool DMZ
+network 10.10.5.0 255.255.255.0
+default-router 10.10.5.1
+dns-server 88.10.10.10
+
+ip dhcp pool MGT
+network 10.10.10.0 255.255.255.0
+default-router 10.10.10.1
+dns-server 88.10.10.10
+(58%)
+
+ip dhcp pool ADMIN
+network 10.10.20.0 255.255.255.0
+default-router 10.10.20.1
+dns-server 88.10.10.10
+(59%)
+
+ip dhcp pool Sales
+network 10.10.30.0 255.255.255.0
+default-router 10.10.30.1
+dns-server 88.10.10.10
+(61%)
+
+ip dhcp pool ACCOUNTING
+network 10.10.40.0 255.255.255.0
+default-router 10.10.40.1
+dns-server 88.10.10.10
+
+ip dhcp pool SiteA
+network 10.60.0.0 255.255.0.0
+default-router 10.60.0.1
+dns-server 88.10.10.10
+(62%)
+
+ip dhcp pool SiteB
+network 10.60.0.0 255.255.0.0   * sa pka +1% pag .60 to *
+default-router 10.60.0.1
+dns-server 88.10.10.10
+(63%)
+
+8.)
+—New_YorkA—
+int g0/0 
+ip helper-address 10.1.2.1
+* walang ip yung g0/0 weird *
+
+int g0/1
+ip helper-address 10.1.2.1
+(64%)
+
+—New_YorkB—
+int g0/0 
+ip helper-address 10.1.1.1
+* walang ip yung g0/0 weird *
+
+int g0/1
+ip helper-address 10.1.1.1
+
+2.) Configure static and dynamic nat
+-
+—London—
+ip nat inside source list 1 pool pool-name overload
+ip nat pool pool-name 200.20.20.2 200.20.20.2 netmask 255.255.255.252
+
+access-list 1 permit 172.16.0.0 0.0.0.63
+access-list 1 permit 172.16.0.64 0.0.0.31 
+
+int ran g0/0-2
+ip nat in
+
+int s0/0/0
+ip nat out
+
+
+GRE CONFIGURATION
+BOTH ROUTERS
+licens boo mod c2 tech sec
+cop r st
+reload
+
+access-list 110 permit ip source-net-add wild-card
+dest-ned-add  wild-card
+
+R1(config)# crypto isakmp policy 10
+R1(config-isakmp)# encryption aes 256
+R1(config-isakmp)# authentication pre-share
+R1(config-isakmp)# group 5
+R1(config-isakmp)# exit
+R1(config)# crypto isakmp key vpnpa55 address entrance-interface-ng kabilang-router
+
+R1(config)# crypto ipsec transform-set VPN-SET esp-aes esp-sha-hmac
+
+R1(config)# crypto map VPN-MAP 10 ipsec-isakmp
+R1(config-crypto-map)# description VPN connection to R3
+R1(config-crypto-map)# set peer entrance-interface-ng kabilang-router
+R1(config-crypto-map)# set transform-set VPN-SET
+R1(config-crypto-map)# match address 110
+R1(config-crypto-map)# exit
+
+R1(config)# interface s0/0/0
+R1(config-if)# crypto map VPN-MAP
+
+
+
+
+
+DAGDAG
+—New_YorkA—
+no ip domain-lookup
+ip domain-name finalskills.com
+enable secret ciscoenpass
+lin con 0
+pass ciscoconpass
+login 
+(65%)
+lin vty 0 15
+pass ciscovtypass
+login
+exit
+(66%)
+security passwords min-length 11
+username admin secret ciscoadminpass
+lin vty 0 15 
+login local 
+transport input ssh
+exit
+service password-encryption
+banner motd “Unauthorized access is prohibited”
+
+—New_York_Main—
+no ip domain-lookup
+ip domain-name finalskills.com
+enable secret ciscoenpass
+lin con 0
+pass ciscoconpass
+login 
+lin vty 0 15
+pass ciscovtypass
+login
+exit
+(68%)
+security passwords min-length 11
+username admin secret ciscoadminpass
+lin vty 0 15 
+login local 
+transport input ssh
+(69%)
+exit
+service password-encryption
+banner motd “Unauthorized access is prohibited”
+
+—New_YorkB—
+no ip domain-lookup
+ip domain-name finalskills.com
+enable secret ciscoenpass
+lin con 0
+pass ciscoconpass
+login 
+lin vty 0 15
+pass ciscovtypass
+login
+exit
+(70%)
+security passwords min-length 11
+username admin secret ciscoadminpass
+lin vty 0 15 
+login local 
+transport input ssh
+exit
+service password-encryption
+banner motd “Unauthorized access is prohibited”
+
+—ISP—
+no ip domain-lookup
+ip domain-name finalskills.com
+enable secret ciscoenpass
+lin con 0
+pass ciscoconpass
+login 
+lin vty 0 15
+pass ciscovtypass
+login
+exit
+security passwords min-length 11
+username admin secret ciscoadminpass
+lin vty 0 15 
+login local 
+transport input ssh
+exit
+service password-encryption
+banner motd “Unauthorized access is prohibited”
+
+
+
+
+
+
+
+
+PC-01
+IPv4: 172.16.0.2  SM: 255.255.255.192
+DG: 172.16.0.1
+
+IPv6: 2001:ABCD:B::2 /48
+DG: 2001:ABCD:B::1
+DNS Server: 2001:ABCD:B::1
+
+PC-02
+IPv4: 172.16.0.66 SM: 255.255.255.224
+DG: 172.16.0.65
+
+IPv6: 2001:ABCD:A::2 /48
+DG: 2001:ABCD:A::1
+DNS Server: 2001:ABCD:A::1

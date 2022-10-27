@@ -1,0 +1,91 @@
+<NavBarFour@MDScreen>:
+    id: input_factor
+    name: "input_factor"
+    FloatLayout:
+        MDLabel:
+            pos_hint: {'center_x': 0.70,'center_y': 0.88}
+            font_size: 20
+            text: "Take the four surveys"
+            color: C("dbdbdb")
+        Button: #F1 BUTTON
+            size_hint: 0.3,0.17
+            background_color: 0,0,0,0
+            pos_hint: {'center_x': 0.32,'center_y': 0.73}
+            on_press: 
+                app.main.employee_home_screen.float.main_screen.current = "survey_form_one"
+                app.questionnaire("sleep",0)
+        Image:
+            pos_hint: {'center_x': 0.32,'center_y': 0.73}
+            size_hint: 0.32,0.19
+            source: "images/f1.png"
+        Button: #F2 BUTTON
+            size_hint: 0.3,0.17
+            background_color: 0,0,0,0
+            pos_hint: {'center_x': 0.68,'center_y': 0.73}
+            on_press: 
+                app.main.employee_home_screen.float.main_screen.current = "survey_form_one"
+                app.questionnaire("work",0)
+        Image:
+            pos_hint: {'center_x': 0.68,'center_y': 0.73}
+            size_hint: 0.32,0.19
+            source: "images/f2.png"
+        Button: #F3 BUTTON
+            size_hint: 0.3,0.17
+            background_color: 0,0,0,0
+            pos_hint: {'center_x': 0.32,'center_y': 0.53}
+            on_press: 
+                app.main.employee_home_screen.float.main_screen.current = "survey_form_one"
+                app.questionnaire("apetite",0)
+        Image:
+            pos_hint: {'center_x': 0.32,'center_y': 0.53}
+            size_hint: 0.32,0.19
+            source: "images/f3.png"
+        Button: #F4 BUTTON
+            size_hint: 0.3,0.17
+            background_color: 0,0,0,0
+            pos_hint: {'center_x': 0.68,'center_y': 0.53}
+            on_press: 
+                app.main.employee_home_screen.float.main_screen.current = "survey_form_one"
+                app.questionnaire("hygiene",0)
+        Image:
+            pos_hint: {'center_x': 0.68,'center_y': 0.53}
+            size_hint: 0.32,0.19
+            source: "images/f4.png"
+        MDCard:    #card to button conversion via ripple
+            pos_hint: {'center_x':0.5,'center_y':.37}
+            size_hint: (.53,.05)
+            radius: 10
+            md_bg_color: (1,1,1,0)
+            ripple_behavior: True
+            Image:
+                source: "images/learn.png"
+            MDLabel:
+                font_size: 12
+                text: "Learn more\nabout fatigue"
+                color: C("c2d5db")
+        MDCard:    #card to button conversion via ripple
+            pos_hint: {'center_x':0.5,'center_y':.30}
+            size_hint: (.53,.05)
+            radius: 10
+            md_bg_color: (1,1,1,0)
+            ripple_behavior: True
+            #on_release: app.login(
+            Image:
+                source: "images/about.png"
+            MDLabel:
+                font_size: 12
+                text: "About the\n Developers"
+                color: C("c2d5db")
+        MDCard:    #card to button conversion via ripple
+            pos_hint: {'center_x':0.51,'center_y':.23}
+            size_hint: (.53,.05)
+            radius: 10
+            md_bg_color: (1,1,1,0)
+            ripple_behavior: True
+            on_release: app.logout()
+            Image:
+                source: "images/logout.png"
+            MDLabel:
+                font_size: 12
+                text: "Logout"
+                color: C("c2d5db")

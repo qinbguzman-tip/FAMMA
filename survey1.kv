@@ -1,0 +1,116 @@
+<SurveyFormOne@MDScreen>:
+    id: survey_form_one
+    name: "survey_form_one"
+    question:question
+    answer_one:answer_one
+    answer_two:answer_two
+    answer_three:answer_three
+    answer_four:answer_four
+    answer_five:answer_five
+    next:next
+    prev:prev
+    picture:picture
+    factor_title:factor_title
+
+    FloatLayout:
+        Image:
+            size_hint: 0.075,0.075
+            pos_hint: {'center_x': 0.05,'center_y': 0.96}
+            source: "images/back.png"
+        Button:
+            size_hint: 0.075,0.07
+            pos_hint: {'center_x': 0.05,'center_y': 0.96}
+            background_color: 0,0,0,0
+            on_press: app.return_to_nav()
+        MDLabel:
+            id: factor_title
+            pos_hint: {'center_x': 0.5,'center_y': 0.91}
+            text: "Sleep Hygiene"
+            color: C("ffffff")
+            font_size: 24
+            halign: "center"
+
+        MDLabel:
+            id: question
+            pos_hint: {'center_x': 0.5,'center_y': 0.84}
+            size_hint: 0.8,0.07
+            color: C("ffffff")
+            text: "Lorem ipsum dolor sit amet, Cras adipiscing elit. Cras in cursus erat"
+            font_size: 14
+            halign: "center"
+        MyToggleButton:
+            id: answer_one
+            pos_hint: {'center_x': 0.5,'center_y': 0.75}
+            size_hint: 0.8,0.045
+            group: "survey"
+            text: "Highly disagree"
+            font_size: 12
+            background_color: {'normal': C("236093"), 'down':C("ffffff") } [self.state]
+            background_normal: ""
+            background_active: ""
+            #background_color: C("335072") 
+            #limited yung colors sa RGBA
+        MyToggleButton:
+            id: answer_two
+            pos_hint: {'center_x': 0.5,'center_y': 0.695}
+            size_hint: 0.8,0.045
+            group: "survey"
+            text: "Disagree"
+            background_color: {'normal': C("236093"), 'down':C("ffffff") } [self.state]
+            background_normal: ""
+            background_active: ""
+            font_size: 12
+        MyToggleButton:
+            id: answer_three
+            pos_hint: {'center_x': 0.5,'center_y': 0.64}
+            size_hint: 0.8,0.045
+            background_color: {'normal': C("236093"), 'down':C("ffffff") } [self.state]
+            background_normal: ""
+            background_active: ""
+            group: "survey"
+            text: "Neutral"
+            font_size: 12
+        MyToggleButton:
+            id: answer_four
+            pos_hint: {'center_x': 0.5,'center_y': 0.585}
+            size_hint: 0.8,0.045
+            background_color: {'normal': C("236093"), 'down':C("ffffff") } [self.state]
+            background_normal: ""
+            background_active: ""
+            group: "survey"
+            text: "Agree"
+            font_size: 12
+        MyToggleButton:
+            id: answer_five
+            pos_hint: {'center_x': 0.5,'center_y': 0.53}
+            size_hint: 0.8,0.045
+            background_color: {'normal': C("236093"), 'down':C("ffffff") } [self.state]
+            background_normal: ""
+            background_active: ""
+            group: "survey"
+            text: "Highly agree"
+            font_size: 12
+
+        MDRectangleFlatButton:
+            id: prev
+            size_hint: 0.1,0.04
+            pos_hint: {'center_x': 0.25,'center_y': 0.435}
+            text: "Previous"
+            line_color: C("90b5cf")
+            text_color: C("90b5cf")
+            halign: "center"
+            on_press: app.questionnaire(app.type, -1)
+        MDRectangleFlatButton:
+            id: next
+            size_hint: 0.1,0.04
+            pos_hint: {'center_x': 0.75,'center_y': 0.435}
+            text: "Next"
+            line_color: C("90b5cf")
+            text_color: C("90b5cf")
+            halign: "center"
+            on_press: app.questionnaire(app.type, 1)
+        Image:
+            id: picture
+            source: "images/theme1.png"
+            size_hint: 0.5,0.6
+            pos_hint: {'center_x': 0.5,'center_y': 0.228}

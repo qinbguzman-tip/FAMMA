@@ -1,0 +1,186 @@
+#:import C kivy.utils.get_color_from_hex
+
+<EditTime@MDScreen>: 
+    id:edit_time
+    name: "edit_time"
+    total_time:total_time
+    hr1:hr1
+    min1:min1
+    am1:am1
+    pm1:pm1
+    hr2:hr2
+    min2:min2
+    am2:am2
+    pm2:pm2
+
+    BoxLayout:
+        orientation: "vertical"
+        padding: (20,0,20,0)
+
+        FloatLayout:
+            size_hint: 1,.23
+            pos_hint: {'center_x': .5,'top': .5}
+            Label:
+                text: "TIME ASLEEP"
+                font_size: 15
+                size_hint: .1, .1
+                pos_hint: {'center_x': .5,'top': .7}
+            Label:
+                id: total_time
+                text: "0hrs 0mins"
+                size_hint: .1, .1
+                bold: True
+                font_size: 32
+                pos_hint: {'center_x': .5,'center_y': .4}
+
+        BoxLayout:
+            size_hint: 1,.27  
+            pos_hint: {'center_x': .5,'center_y': .5}
+            md_bg_color: C("#ffffff")
+            FloatLayout:
+                Label:
+                    text: "From"
+                    size_hint: 1, .3
+                    pos_hint: {'center_x': .5,'y': .7}
+
+                BoxLayout:
+                    size_hint: 1, .5
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    orientation: "horizontal"
+                    TextInput:
+                        id: hr1
+                        size_hint: 1, 1
+                        hint_text: "00"
+                        halign: "center"
+                        font_size: 50
+                        multiline: False
+                        input_filter: "int"
+                        background_normal: ""
+                        background_active: ""
+                        foreground_color: "ffffff"
+                        background_color: (0,0,0,0)
+                        cursor_color: "#ffffff"
+                        active_line: False
+                    Label:
+                        text: ":"
+                        text_color: "ffffff"
+                        font_size: 50
+                        size_hint: .1, 1
+                        pos_hint: {'center_x': .5,'center_y': .58}
+                    TextInput:
+                        id: min1
+                        size_hint: 1, 1
+                        hint_text: "00"
+                        halign: "center"
+                        font_size: 50
+                        multiline: False
+                        input_filter: "int"
+                        background_normal: ""
+                        background_active: ""
+                        foreground_color: "ffffff"
+                        background_color: (0,0,0,0)
+                        cursor_color: "#ffffff"
+                        active_line: False
+        
+                    BoxLayout:
+                        size_hint: 1, 1
+                        pos_hint: {'center_x': .5,'center_y': 0.5}
+                        orientation: "vertical"
+                        padding: dp(15)
+                        MyToggleButton:
+                            id: am1
+                            text:"AM"
+                            custom_color: "ffffff"
+                            group: "x"
+                            state: 'down'
+                            
+                        MyToggleButton:
+                            id: pm1
+                            text:"PM"
+                            custom_color: "ffffff"
+                            group: "x"
+                            
+
+
+        BoxLayout:
+            size_hint: 1,.27 
+            pos_hint: {'center_x': .5,'center_y': .5}
+            md_bg_color: C("#ffffff")
+            FloatLayout:
+                Label:
+                    text: "To"
+                    size_hint: 1, .3
+                    pos_hint: {'center_x': .5,'y': .75}
+
+                BoxLayout:
+                    size_hint: 1, .5
+                    pos_hint: {'center_x': .5,'center_y': .55}
+                    orientation: "horizontal"
+                    TextInput:
+                        id: hr2
+                        size_hint: 1, 1
+                        hint_text: "00"
+                        halign: "center"
+                        font_size: 50
+                        multiline: False
+                        input_filter: "int"
+                        background_normal: ""
+                        background_active: ""
+                        foreground_color: "ffffff"
+                        background_color: (0,0,0,0)
+                        cursor_color: "#ffffff"
+                        active_line: False
+                    Label:
+                        text: ":"
+                        text_color: "ffffff"
+                        font_size: 50
+                        size_hint: .1, 1
+                        pos_hint: {'center_x': .5,'center_y': .58}
+                    TextInput:
+                        id: min2
+                        size_hint: 1, 1
+                        hint_text: "00"
+                        halign: "center"
+                        font_size: 50
+                        multiline: False
+                        input_filter: "int"
+                        background_normal: ""
+                        background_active: ""
+                        foreground_color: "ffffff"
+                        background_color: (0,0,0,0)
+                        cursor_color: "#ffffff"
+                        active_line: False
+        
+                    BoxLayout:
+                        size_hint: 1, 1
+                        pos_hint: {'center_x': .5,'center_y': 0.5}
+                        orientation: "vertical"
+                        padding: dp(15)
+                        MyToggleButton:
+                            id:am2
+                            text:"AM"
+                            custom_color: "ffffff"
+                            group: 'y'
+                            state: 'down'
+                            
+                        MyToggleButton:
+                            id:pm2
+                            text:"PM"
+                            custom_color: "ffffff"
+                            group: 'y'
+
+        BoxLayout:
+            size_hint: 1,.15
+            pos_hint: {'center_x': .5,'center_y': 1}
+            FloatLayout:
+                Button:
+                    text: "SAVE"
+                    size_hint: .5, .5
+                    pos_hint: {'center_x': .5,'center_y': .5}
+                    on_press: app.total_time()
+
+        BoxLayout:
+            size_hint: 1,.08
+            pos_hint: {'center_x': .5,'y': 1}
+
+<MyToggleButton@ToggleButton>:

@@ -1,0 +1,59 @@
+<NavBarTwo@MDScreen>:
+    id: sleep
+    name: "sleep"
+    hour_sleep:hour_sleep
+    FloatLayout:
+        orientation:"vertical"
+        Image:
+            source: 'images/clock.png'
+            size_hint: (0.60,0.60)
+            pos_hint: {'center_x':0.50,'center_y':.69}
+        MDLabel:
+            size_hint: (0.7,0.7)
+            pos_hint: {'center_x':0.50,'center_y':.45}
+            text: "TIME ASLEEP"
+            color: C("e8e8e8")
+            font_size:28
+            halign: "center"
+        MDLabel:
+            id: hour_sleep
+            size_hint: (1,1)
+            pos_hint: {'center_x':0.50,'center_y':.38}
+            text: "8 Hr 30 Min" #EDIT TO BE RELATIVE TO CURRENT DATA OF USER.
+            color: C("e8e8e8")
+            font_size:38
+            halign: "center"
+        MDCard:    #card to button conversion via ripple
+            pos_hint: {'center_x':0.5,'center_y':.28}
+            size_hint: (.55,.05)
+            radius: 10
+            md_bg_color: (1,1,1,0)
+            ripple_behavior: True
+            on_release: app.main.employee_home_screen.float.main_screen.current = "edit_time"
+            Image:
+                source: 'images/edit.png'
+                size_hint: (0.8,0.8)
+                pos_hint: {'center_y':.55}
+            MDLabel: 
+                size_hint: (1,1)
+                pos_hint: {'center_x':0.1}
+                text: "Edit sleep"
+                font_size: "15sp"
+                color: C("c2d5db")
+        MDCard:    #card to button conversion via ripple
+            pos_hint: {'center_x':0.5,'center_y':.21}
+            size_hint: (.55,.05)
+            radius: 10
+            md_bg_color: (1,1,1,0)
+            ripple_behavior: True
+            #on_release: app.login()
+            Image:
+                source: 'images/alarm.png'
+                size_hint: (0.8,0.8)
+                pos_hint: {'center_y':.55}
+            MDLabel: 
+                size_hint: (1,1)
+                pos_hint: {'center_x':0.1}
+                text: "Alarm"
+                font_size: "15sp"
+                color: C("c2d5db")

@@ -1,0 +1,15 @@
+#:import C kivy.utils.get_color_from_hex
+#:import partial functools.partial
+
+<main_kv>:
+    login_screen:login_screen
+    sign_up_screen:sign_up_screen
+
+        
+    SignUpScreen:
+        id: sign_up_screen
+        name: "sign_up_screen"
+    LoginScreen:
+        id: login_screen
+        name: "login_screen"
+        md_bg_color: C("131925") #bg color sheesh

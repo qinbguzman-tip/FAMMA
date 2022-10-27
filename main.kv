@@ -1,0 +1,75 @@
+#:import C kivy.utils.get_color_from_hex
+#:import partial functools.partial
+
+<main_kv>:
+    boot_screen:boot_screen
+    pre_sign_up_screen:pre_sign_up_screen
+    sign_up_screen:sign_up_screen
+    new_sign_in_screen:new_sign_in_screen
+    employer_sign_up_screen:employer_sign_up_screen
+    employee_sign_up_screen:employee_sign_up_screen
+    pre_employee:pre_employee
+    login_screen:login_screen
+    input_factor:input_factor
+    statistics_page:statistics_page
+    employee_home_screen:employee_home_screen
+    employer_main:employer_main
+
+
+    NewSignInScreen:
+        id: new_sign_in_screen
+        name: "new_sign_in_screen"
+        md_bg_color: C("2c4a6e")
+    BootScreen:
+        id: boot_screen
+        name: "boot_screen"
+        md_bg_color: C("2c4a6e")
+    EmployerNav_Screen:
+        id: employer_main
+        name: "employer_main"
+        md_bg_color: C("2c4a6e")
+    EmployeeHomeScreen:
+        id: employee_home_screen
+        name: "employee_home_screen"
+        md_bg_color: C("2c4a6e")
+    NavBarFour:
+        id: input_factor
+        name: "input_factor"        
+        md_bg_color: C("2c4a6e") 
+    NavBarThree:
+        id: statistics_page
+        name: "statistics_page"
+        md_bg_color: C("2c4a6e") 
+    NavBarTwo:
+        id: sleep
+        name: "sleep"        
+        md_bg_color: C("2c4a6e")  
+    PreSignup:
+        id: pre_sign_up_screen
+        name: "pre_sign_up_screen"     
+        md_bg_color: C("2c4a6e")
+    PreEmployee:
+        id: pre_employee
+        name: "pre_employee"
+        md_bg_color: C("2c4a6e")
+    EmployerSignup:
+        id: employer_sign_up_screen
+        name: "employer_sign_up_screen"
+        md_bg_color: C("2c4a6e")
+    EmployeeSignup:
+        id: employee_sign_up_screen
+        name: "employee_sign_up_screen"
+        md_bg_color: C("2c4a6e")
+    LoginScreen:
+        id: login_screen
+        name: "login_screen"
+        md_bg_color: C("2c4a6e") 
+    SignUpScreen:
+        id: sign_up_screen
+        name: "sign_up_screen"
+    LoginScreen:
+        id: login_screen
+        name: "login_screen"
+        md_bg_color: C("131925") #bg color sheesh
+
+        

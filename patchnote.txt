@@ -1,0 +1,25 @@
+05/24/2022
+
+firebase:
+    gmail account:
+        address: fatigueapp123@gmail.comp
+        password: !hakdog123
+
+login:
+    ui - completed
+    process - completed
+    error handling - partial
+
+sign up:
+    ui - none
+    process - completed for employers view only 
+    error handling - none
+
+
+edit time ---> needs error handling, limit input to two characters only
+
+
+TO DO LIST:
+Buong employer
+Whole Nav Bar (Bottom of the screen fixed)
+Statistics

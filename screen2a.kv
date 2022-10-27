@@ -1,0 +1,33 @@
+<SignUpScreen@MDScreen>:
+    id: sign_up_screen
+    name: "sign_up_screen"
+    username: username
+    first_name: first_name
+    last_name: last_name
+    #company_name: company_name
+    password: password
+
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: "Signup"
+            color: C("#000000")
+        MDTextField:
+            hint_text: "Username"
+            id: username
+        MDTextField:
+            hint_text: "First Name"
+            id: first_name
+        MDTextField:
+            hint_text: "Last Name"
+            id: last_name
+#       MDTextField:
+#           hint_text: "Company Name"
+#           id: company_name  
+# REMOVED. COMPANY NAME SHOULD BE INHERITED BY THE CREATOR
+        MDTextField:
+            hint_text: "Password"
+            id: password
+        Button:
+            text: "Sign Up"
+            on_press: app.sign_up(1)
